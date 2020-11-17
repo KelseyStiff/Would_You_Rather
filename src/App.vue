@@ -9,14 +9,13 @@
     v-bind:question="question.question"
     v-bind:answer1="question.answer1"
     v-bind:answer2="question.answer2"
+    v-bind:id="question.id"
     ></would-you-rather>
 
     <p>You Would Rather...</p>
 
-    <ul>
-      <li></li>
-      <li></li>
-      <li></li>
+    <ul v-for="answer in answers">
+      <li >{{ answer }}</li>
     </ul>
 
   </div>
@@ -55,8 +54,10 @@ export default {
       answers: []
     }
   },
+
   methods: {
-    answerChanged(choice){
+    answerChanged(choice, id){
+      this.$set(this.answers, id, choice )
     }
   }
 }

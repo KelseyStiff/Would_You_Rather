@@ -19,6 +19,7 @@ export default {
     question: String,
     answer1: String,
     answer2: String,
+    id: Number
   },
   data(){
     return {
@@ -27,7 +28,7 @@ export default {
   },
   methods: {
     choiceMade(){
-      this.$emit('answer-changed', this.choice)
+      this.$emit('answer-changed', this.choice, this.id)
     }
   }
 }
